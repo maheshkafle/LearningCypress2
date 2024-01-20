@@ -1,0 +1,13 @@
+how to write css-selector in cypress
+					Navigating to url - visit keyword
+					Through command line, cypress runs in headless in electron
+					update configurations in cypress.json which overrides existing behavior
+					cypress supports css selectors only
+
+id					#id
+classname			.classname		.search-keyword
+if we have same classname and can be identified uniquely with tagname then->tagname.classname
+we can also pick any attribute and write cssselector as => tagname[attribute='value'] -> input[type='search']
+					
+				we can see what happened on every step with screenshot and error msgs in cypress
+			
