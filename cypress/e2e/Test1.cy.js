@@ -1,4 +1,5 @@
-/// <reference types="Cypress" />
+//Below command is used for cypress code completion
+/// <reference types="Cypress" /> 
 
 describe('My First Test Suite', 
 ()=>
@@ -13,5 +14,14 @@ describe('My First Test Suite',
         cy.get('.product:visible').should('have.length', 4) //way to select only visible elements in jquery by using :visible keyword
         //Parent child chaining to add product to the cart
         cy.get('.products').find('.product').eq(1).contains('ADD TO CART').click()   
+        //Using text() method to click on products
+        cy.get('.products').find('.product').each(($ele, index, $list)=>
+        {
+            const text = $ele.find('.product-name').text()
+            if(text.includes('Cashews'))
+            {
+              cy.wrap($ele).find('button').click()  //we need to wrap the ele to resolve the promise here
+            }
+        })
     })
 })  
