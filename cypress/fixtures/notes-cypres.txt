@@ -10,4 +10,7 @@ if we have same classname and can be identified uniquely with tagname then->tagn
 we can also pick any attribute and write cssselector as => tagname[attribute='value'] -> input[type='search']
 					
 				we can see what happened on every step with screenshot and error msgs in cypress
-			
+				Promise comes with rejection, resolved and pending
+				.then() gets executed once promise is resolved
+				Non cypress commands cannot resolve promise themselves 
+				we need to manually resolve them using .then() method		
