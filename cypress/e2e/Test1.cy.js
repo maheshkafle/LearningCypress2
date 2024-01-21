@@ -33,5 +33,7 @@ describe('My First Test Suite',
             cy.log(logoelement.text())
         
         })
+        cy.get(".cart-icon").click()
+        cy.contains("PROCEED TO CHECKOUT").click()
     })
 })  
