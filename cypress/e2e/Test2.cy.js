@@ -50,10 +50,33 @@ describe('Test ', ()=>
         cy.get('#displayed-text').should('be.visible')
     })
 
-    it.only('handle radio buttons', ()=> 
+    it('radio buttons', ()=> 
     {
         cy.viewport(1280,800)
         cy.visit('https://rahulshettyacademy.com/AutomationPractice/')
         cy.get('input[value="radio2"]').check().should('be.checked')
+    })
+
+    it('Alerts dialog', ()=> 
+    {
+        cy.viewport(1280,800)
+        cy.visit('https://rahulshettyacademy.com/AutomationPractice/')
+        cy.get('#name').type('Mahesh')
+        cy.get('#alertbtn').click()
+        Cypress.on('window:alert', (str) =>
+        {
+            expect(str).to.be.equal('Hello Mahesh, share this practice page and share your knowledge')
+        })
+    })
+
+    it.only('Confirm dialog', ()=> 
+    {
+        cy.viewport(1280,800)
+        cy.visit('https://rahulshettyacademy.com/AutomationPractice/')
+        cy.get('#confirmbtn').click()
+        Cypress.on('window:confirm', (str) =>
+        {
+            expect(str).to.be.equal('Hello , Are you sure you want to confirm?')
+        })
     })
 })
