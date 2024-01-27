@@ -23,7 +23,7 @@ describe('Test ', ()=>
         cy.get('select').select('option1').should('have.value', 'option1')
     })
 
-    it.only('dynamic dropdowns using each command', ()=> 
+    it('dynamic dropdowns using each command', ()=> 
     {
         cy.viewport(1280,800)
         cy.visit('https://rahulshettyacademy.com/AutomationPractice/')
@@ -37,5 +37,16 @@ describe('Test ', ()=>
             }
         })
         cy.get("#autocomplete").should('have.value', 'United Arab Emirates')
+    })
+
+    it('visible and invisible elements using assertions in cypress', ()=> 
+    {
+        cy.viewport(1280,800)
+        cy.visit('https://rahulshettyacademy.com/AutomationPractice/')
+        cy.get('#displayed-text').should('be.visible')
+        cy.get('#hide-textbox').click()
+        cy.get('#displayed-text').should('not.be.visible')
+        cy.get('#show-textbox').click()
+        cy.get('#displayed-text').should('be.visible')
     })
 })
