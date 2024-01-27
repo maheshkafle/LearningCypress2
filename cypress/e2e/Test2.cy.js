@@ -49,4 +49,11 @@ describe('Test ', ()=>
         cy.get('#show-textbox').click()
         cy.get('#displayed-text').should('be.visible')
     })
+
+    it.only('handle radio buttons', ()=> 
+    {
+        cy.viewport(1280,800)
+        cy.visit('https://rahulshettyacademy.com/AutomationPractice/')
+        cy.get('input[value="radio2"]').check().should('be.checked')
+    })
 })
