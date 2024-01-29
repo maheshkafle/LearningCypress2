@@ -80,11 +80,29 @@ describe('Test ', ()=>
         })
     })
 
-    it.only('Child tab with combination of cypress and jquery commands', ()=> 
+    it('Child tab with combination of cypress and jquery commands', ()=> 
     {
         cy.viewport(1280,800)
         cy.visit('https://rahulshettyacademy.com/AutomationPractice/')
         cy.get('#opentab').invoke('removeAttr', 'target').click()
+    })
+
+    it.only('Web tables with cypress using each command', ()=> 
+    {
+        cy.viewport(1280,800)
+        cy.visit('https://rahulshettyacademy.com/AutomationPractice/')
+        cy.get('tr td:nth-child(2)').each(($el, index, $list) =>
+        {
+            const text= $el.text()
+            if(text.includes('WebSecurity'))
+            {
+                cy.get('tr td:nth-child(2)').eq(index).next().then((price)=>
+                {
+                    const priceText = price.text()
+                    expect(priceText).to.equal('20')
+                })
+            }
+        })
     })
 
 })
