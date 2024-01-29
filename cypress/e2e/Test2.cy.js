@@ -69,7 +69,7 @@ describe('Test ', ()=>
         })
     })
 
-    it.only('Confirm dialog', ()=> 
+    it('Confirm dialog', ()=> 
     {
         cy.viewport(1280,800)
         cy.visit('https://rahulshettyacademy.com/AutomationPractice/')
@@ -79,4 +79,12 @@ describe('Test ', ()=>
             expect(str).to.be.equal('Hello , Are you sure you want to confirm?')
         })
     })
+
+    it.only('Child tab with combination of cypress and jquery commands', ()=> 
+    {
+        cy.viewport(1280,800)
+        cy.visit('https://rahulshettyacademy.com/AutomationPractice/')
+        cy.get('#opentab').invoke('removeAttr', 'target').click()
+    })
+
 })
