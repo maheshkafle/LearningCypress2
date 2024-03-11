@@ -33,7 +33,7 @@ describe('Test ', ()=>
         {
             if($ele.text()==='United Arab Emirates')
             {
-                $ele.click()
+                cy.wrap($ele).click()
             }
         })
         cy.get("#autocomplete").should('have.value', 'United Arab Emirates')
